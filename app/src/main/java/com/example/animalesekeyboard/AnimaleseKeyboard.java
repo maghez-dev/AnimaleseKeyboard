@@ -13,6 +13,7 @@ public class AnimaleseKeyboard extends InputMethodService implements KeyboardVie
 
     private KeyboardView kv;
     private Keyboard keyboard;
+    private Animalese animaleseSounds;
 
     private  boolean isCaps = false;
 
@@ -24,6 +25,8 @@ public class AnimaleseKeyboard extends InputMethodService implements KeyboardVie
         keyboard = new Keyboard(this,R.xml.qwerty);
         kv.setKeyboard(keyboard);
         kv.setOnKeyboardActionListener(this);
+
+        animaleseSounds = new Animalese();
         return kv;
     }
 
@@ -38,27 +41,29 @@ public class AnimaleseKeyboard extends InputMethodService implements KeyboardVie
     @Override
     public void onKey(int i, int[] ints) {
         InputConnection ic = getCurrentInputConnection();
-        playClick(i);
 
         switch (i) {
             case Keyboard.KEYCODE_DELETE:
                 ic.deleteSurroundingText(1,0);
+                playClick(i);
                 break;
             case Keyboard.KEYCODE_SHIFT:
                 isCaps = !isCaps;
                 keyboard.setShifted(isCaps);
                 kv.invalidateAllKeys();
+                playClick(i);
                 break;
             case Keyboard.KEYCODE_DONE:
                 ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN,KeyEvent.KEYCODE_ENTER));
+                playClick(i);
                 break;
             default:
                 char code = (char)i;
                 if(Character.isLetter(code) && isCaps)
                     code = Character.toUpperCase(code);
                 ic.commitText(String.valueOf(code),1);
+                animaleseSounds.playSound(this, String.valueOf(code));
         }
-
     }
 
     private void playClick(int i) {
