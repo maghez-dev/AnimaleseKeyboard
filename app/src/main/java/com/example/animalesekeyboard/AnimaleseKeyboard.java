@@ -26,7 +26,7 @@ public class AnimaleseKeyboard extends InputMethodService implements KeyboardVie
         kv.setKeyboard(keyboard);
         kv.setOnKeyboardActionListener(this);
 
-        animaleseSounds = new Animalese();
+        animaleseSounds = new Animalese(this);
         return kv;
     }
 
@@ -62,7 +62,7 @@ public class AnimaleseKeyboard extends InputMethodService implements KeyboardVie
                 if(Character.isLetter(code) && isCaps)
                     code = Character.toUpperCase(code);
                 ic.commitText(String.valueOf(code),1);
-                animaleseSounds.playSound(this, String.valueOf(code));
+                animaleseSounds.playSound(String.valueOf(code));
         }
     }
 
@@ -87,26 +87,21 @@ public class AnimaleseKeyboard extends InputMethodService implements KeyboardVie
 
     @Override
     public void onText(CharSequence charSequence) {
-
     }
 
     @Override
     public void swipeLeft() {
-
     }
 
     @Override
     public void swipeRight() {
-
     }
 
     @Override
     public void swipeDown() {
-
     }
 
     @Override
     public void swipeUp() {
-
     }
 }
