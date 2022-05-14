@@ -15,7 +15,8 @@ public class AnimaleseKeyboard extends InputMethodService implements KeyboardVie
     private Keyboard keyboard;
     private Animalese animaleseSounds;
 
-    private  boolean isCaps = false;
+    private boolean isCaps = false;
+    private boolean isSymbol = false;
 
     // Press Ctrl+O to override methods
 
@@ -53,8 +54,18 @@ public class AnimaleseKeyboard extends InputMethodService implements KeyboardVie
                 kv.invalidateAllKeys();
                 playClick(i);
                 break;
+            case Keyboard.KEYCODE_MODE_CHANGE:
+                if (isSymbol)
+                    keyboard = new Keyboard(this, R.xml.qwerty);
+                else
+                    keyboard = new Keyboard(this, R.xml.symbols);
+                isSymbol = !isSymbol;
+                kv.setKeyboard(keyboard);
+                kv.invalidateAllKeys();
+                playClick(i);
+                break;
             case Keyboard.KEYCODE_DONE:
-                ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN,KeyEvent.KEYCODE_ENTER));
+                ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
                 playClick(i);
                 break;
             default:
@@ -68,7 +79,6 @@ public class AnimaleseKeyboard extends InputMethodService implements KeyboardVie
 
     private void playClick(int i) {
         AudioManager am = (AudioManager)getSystemService(AUDIO_SERVICE);
-
         switch(i) {
             case 32:
                 am.playSoundEffect(AudioManager.FX_KEYPRESS_SPACEBAR);

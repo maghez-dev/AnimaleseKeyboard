@@ -6,10 +6,4 @@
         android:imeSubtypeMode="keyboard"
         />
 
-    <subtype
-        android:label="Italian (IT)"
-        android:imeSubtypeLocale="it_IT"
-        android:imeSubtypeMode="keyboard"
-        />
-
 </input-method>

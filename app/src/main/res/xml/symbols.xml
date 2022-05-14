@@ -6,28 +6,28 @@
     android:keyHeight="50dp">
 
     <Row>
-        <Key android:keyLabel="q"
+        <Key android:keyLabel="1"
             android:keyEdgeFlags="left"
-            android:codes="113"/>
-        <Key android:keyLabel="w"
-            android:codes="119"/>
-        <Key android:keyLabel="e"
-            android:codes="101"/>
-        <Key android:keyLabel="r"
-            android:codes="114"/>
-        <Key android:keyLabel="t"
-            android:codes="116"/>
-        <Key android:keyLabel="y"
-            android:codes="121"/>
-        <Key android:keyLabel="u"
-            android:codes="117"/>
-        <Key android:keyLabel="i"
-            android:codes="105"/>
-        <Key android:keyLabel="o"
-            android:codes="111"/>
-        <Key android:keyLabel="p"
+            android:codes="49"/>
+        <Key android:keyLabel="2"
+            android:codes="50"/>
+        <Key android:keyLabel="3"
+            android:codes="51"/>
+        <Key android:keyLabel="4"
+            android:codes="52"/>
+        <Key android:keyLabel="5"
+            android:codes="53"/>
+        <Key android:keyLabel="6"
+            android:codes="54"/>
+        <Key android:keyLabel="7"
+            android:codes="55"/>
+        <Key android:keyLabel="8"
+            android:codes="56"/>
+        <Key android:keyLabel="9"
+            android:codes="57"/>
+        <Key android:keyLabel="0"
             android:keyEdgeFlags="right"
-            android:codes="112"/>
+            android:codes="48"/>
     </Row>
 
     <Row>
@@ -80,7 +80,7 @@
 
     <Row android:rowEdgeFlags="bottom">
         <Key android:keyWidth="15%"
-            android:keyLabel="\?123"
+            android:keyLabel="ABC"
             android:keyEdgeFlags="left"
             android:codes="-2"/>
         <Key android:keyLabel=","
