@@ -59,4 +59,8 @@ public class Animalese {
         if(charToCode.containsKey(letter))
             soundPool.play(charToCode.get(letter), 1, 1, 0, 0, 1);
     }
+
+    public boolean isPresent(String letter) {
+        return charToCode.containsKey(letter);
+    }
 }

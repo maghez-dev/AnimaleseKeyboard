@@ -8,6 +8,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 
+import java.util.Locale;
+
 
 public class AnimaleseKeyboard extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
 
@@ -61,6 +63,7 @@ public class AnimaleseKeyboard extends InputMethodService implements KeyboardVie
                     keyboard = new Keyboard(this, R.xml.symbols);
                 isSymbol = !isSymbol;
                 kv.setKeyboard(keyboard);
+                keyboard.setShifted(isCaps);
                 kv.invalidateAllKeys();
                 playClick(i);
                 break;
@@ -73,7 +76,11 @@ public class AnimaleseKeyboard extends InputMethodService implements KeyboardVie
                 if(Character.isLetter(code) && isCaps)
                     code = Character.toUpperCase(code);
                 ic.commitText(String.valueOf(code),1);
-                animaleseSounds.playSound(String.valueOf(code));
+
+                if(animaleseSounds.isPresent(String.valueOf(code).toLowerCase()))
+                    animaleseSounds.playSound(String.valueOf(code).toLowerCase());
+                else
+                    playClick(i);
         }
     }
 
