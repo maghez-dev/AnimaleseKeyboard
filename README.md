@@ -6,7 +6,7 @@ This project consists in an Android keyboard service that aims to give and alter
 
 # Install Guide
 
- - Dowloand and install the .apk through this link;
+ - Dowloand and install the .apk through this [link](https://github.com/mghezzi-dev/AnimaleseKeyboard/releases/tag/Latest);
  - Be sure to grant install permission from unknown sources to your phone;
  - Go to settings and find the "Keyboard & Input" section
   - It may be different for each device the specific path to that info, but using the provided search bar should be fine enough
