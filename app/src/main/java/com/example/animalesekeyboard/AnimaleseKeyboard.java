@@ -1,5 +1,6 @@
 package com.example.animalesekeyboard;
 
+import android.annotation.SuppressLint;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
@@ -7,8 +8,6 @@ import android.media.AudioManager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
-
-import java.util.Locale;
 
 
 public class AnimaleseKeyboard extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
@@ -22,6 +21,7 @@ public class AnimaleseKeyboard extends InputMethodService implements KeyboardVie
 
     // Press Ctrl+O to override methods
 
+    @SuppressLint("InflateParams")
     @Override
     public View onCreateInputView() {
         kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard,null);
@@ -86,6 +86,7 @@ public class AnimaleseKeyboard extends InputMethodService implements KeyboardVie
 
     private void playClick(int i) {
         AudioManager am = (AudioManager)getSystemService(AUDIO_SERVICE);
+        assert am != null;
         switch(i) {
             case 32:
                 am.playSoundEffect(AudioManager.FX_KEYPRESS_SPACEBAR);
